@@ -1,0 +1,1 @@
+am facut toate punctele de la compulsory si am observat ca rezultatul final va da mereu 9.
