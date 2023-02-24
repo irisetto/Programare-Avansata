@@ -1,0 +1,6 @@
+am verificat daca numarul introdus la linia de comanda este integer prin parseInt, si daca aceasta functie da eroare atunci intra pe catch si da o eroare personalizata
+apoi cu numarul ala am creat matricea latinMatrix de tipul latin square
+am parcurs din nou si pt fiecare linie si coloana am afisat ca sir cifrele concatenate
+pt n ce depaseste 10 se afiseaza doar timpul 
+am testat pt 30000 dar imi da in continuare eroare heap space deoarece presupun ca n am destula memorie pe laptop
+pt 1000 mi a dat 3 secunde, si pt 10000 am stat 5 minute cu memoria ram la 97% si cpu la 70% si inca nu afisa nimic si l am oprit din executie :)
