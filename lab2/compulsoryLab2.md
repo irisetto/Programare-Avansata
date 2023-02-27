@@ -1,3 +1,4 @@
 #Lab 2
-*[ ] Compulsory
+*[x] Compulsory
+am rezolvat toate punctele
 *[ ] Homework
