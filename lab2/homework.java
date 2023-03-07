@@ -50,11 +50,11 @@ enum Roads {
 abstract class Location {
     private String name;
     private String type;
-    private Double x;
-    private Double y;
+    private double x;
+    private double y;
     private static Set<Integer> existingHashes = new HashSet<>();
 
-    public Location(String name, String type, Double x, Double y) {
+    public Location(String name, String type, double x, double y) {
 
         int hash = Objects.hash(name, type, x, y); //creeaza valoare hash pt fiecare combinatie de aceste variabile
         if (existingHashes.contains(hash)) { //combinatia exista deja in lista de hash-uri
@@ -76,11 +76,11 @@ abstract class Location {
         return type;
     }
 
-    public Double getX() {
+    public double getX() {
         return x;
     }
 
-    public Double getY() {
+    public double getY() {
         return y;
     }
 
@@ -92,11 +92,11 @@ abstract class Location {
         this.type = type;
     }
 
-    public void setX(Double x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public void setY(Double y) {
+    public void setY(double y) {
         this.y = y;
     }
 
@@ -116,8 +116,8 @@ abstract class Location {
         Location location = (Location) o;
         if (!getName().equals(location.getName())) return false;
         if (getType() != location.getType()) return false;
-        if (!getX().equals(location.getX())) return false;
-        return getY().equals(location.getY());
+        if (getX() != location.getX()) return false;
+        return getY() != location.getY();
     }
 
 }
@@ -129,11 +129,11 @@ abstract class Location {
 class Road {
     private String name;
     private Roads type;
-    private Double length;
+    private double length;
     private Integer speedLimit;
     private static Set<Integer> existingHashes = new HashSet<>();
 
-    public Road(String name, Roads type, Double length, Integer speedLimit) {
+    public Road(String name, Roads type, double length, Integer speedLimit) {
 
         int hash = Objects.hash(name, type, length, speedLimit);
         if (existingHashes.contains(hash)) {
@@ -156,7 +156,7 @@ class Road {
         return type;
     }
 
-    public Double getLength() {
+    public double getLength() {
         return length;
     }
 
@@ -172,7 +172,7 @@ class Road {
         this.type = type;
     }
 
-    public void setLength(Double length) {
+    public void setLength(double length) {
         this.length = length;
     }
 
@@ -197,7 +197,7 @@ class Road {
         Road road = (Road) o;
         if (!getName().equals(road.getName())) return false;
         if (getType() != road.getType()) return false;
-        if (!getLength().equals(road.getLength())) return false;
+        if (getLength() != road.getLength()) return false;
         return getSpeedLimit().equals(road.getSpeedLimit());
     }
 
@@ -294,7 +294,21 @@ class Problem {
         }
         return false;
     }
-
+    public String checkValidLocation(Location l) {
+        if((int)l.getX() == 0 && (int)l.getY() == 0){
+            return "Here is the NULL Island, so it's not valid :)";
+        }
+        return "It is valid!";
+    }
+    public String checkValidRoad(Road r) {
+        if((int)r.getLength() == 0){
+            return "You can't have a road of 0 length, hence it's not valid.";
+        }
+        if(r.getSpeedLimit() == 0){
+            return "You can't move at 0km/h, hence it's not valid.";
+        }
+        return "It is valid!";
+    }
     public String getRoutesOf(Location location) {
         List<Destination> destinations = routeList.get(location);
         StringBuilder sb = new StringBuilder();
@@ -351,6 +365,9 @@ public class Main {
         System.out.println(road1.getType());
         System.out.println(route.getRoutesOf(loc4));
         System.out.println(route.existPath(loc4, loc3));
-
+        Location l = new AirportLocation("Something", 0.0, 0.0, 3);
+        System.out.println(route.checkValidLocation(l));
+        Road r = new Road("Blank", Roads.COUNTRY, 0.0, 30);
+        System.out.println(route.checkValidRoad(r));
     }
 }
