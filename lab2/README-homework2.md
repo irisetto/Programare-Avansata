@@ -21,3 +21,6 @@ locatie vecina pt a-i verifica destinatiile din lista de adiacenta. eu prin give
 am in lista
 
 punctul 6: am scris niste explicatii pt fiecare clasa ca doc comments si am adaugat in repo ce mi s-a creat prin generarea javadoc
+
+am revenit pt punctul 4 si am creat doua functii de checkValidLocation si checkValidRoad. se considera o locatie invalida cand coordonatele sunt
+0 0 si inseamna insula NULL pe harta, iar un drum invalid are lungimea 0 sau speedLimit 0 ca nu e posibil sa existe un drum asa.
