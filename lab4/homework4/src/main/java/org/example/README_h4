@@ -1,0 +1,4 @@
+am creat clasa MatchingProblem ce defineste problema
+am facut un query care calculeaza media preferintelor, apoi un query pt a filtra studentii dupa aceasta medie
+am importat Faker si am pus nume la studenti si proiecte
+am facut algoritmul greedy, am ordonat lista de proiecte dupa cati studenti vor acel proiect si apoi am facut matching.
