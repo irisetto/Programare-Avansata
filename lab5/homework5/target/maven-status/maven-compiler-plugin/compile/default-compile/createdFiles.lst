@@ -1,0 +1,13 @@
+org\example\Catalog.class
+org\example\Command.class
+org\example\InvalidCatalogException.class
+org\example\AddCommand.class
+org\example\SaveCommand.class
+org\example\CatalogUtil.class
+org\example\ViewCommand.class
+org\example\ListCommand.class
+org\example\Main.class
+org\example\Document.class
+org\example\InvalidPathException.class
+org\example\LoadCommand.class
+org\example\ReportCommand.class
