@@ -1,0 +1,3 @@
+am creat toate clasele DAO
+am facut connection pool cu Hikari
+am creat in albumDAO o functie ce importeaza fisierul csv
