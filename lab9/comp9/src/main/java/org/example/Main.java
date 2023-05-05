@@ -34,7 +34,11 @@ public class Main {
         System.out.println(artist.getName());
         List<Artist> artist2 = artistRepository.findByName("Zendaya");
         for (Artist artist3 : artist2) {
-            System.out.println(artist3.getName()); // Should print "Sgt. Pepper's Lonely Hearts Club Band"
+            System.out.println(artist3.getName());
+        }
+        List<Artist> artist4 = artistRepository.findAll();
+        for (Artist artist5 : artist4) {
+            System.out.println(artist5.getName()+" "+artist5.getId());
         }
         PersistenceManager.getEntityManager().close();
 

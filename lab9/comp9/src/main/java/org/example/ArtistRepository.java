@@ -27,6 +27,11 @@ public class ArtistRepository {
         query.setParameter("name", "%" + name + "%");
         return query.getResultList();
     }
+    public List<Artist> findAll() {
+        TypedQuery<Artist> query = entityManager.createNamedQuery("Artist.findAll", Artist.class);
+
+        return query.getResultList();
+    }
     public void close() {
         entityManager.close();
     }
