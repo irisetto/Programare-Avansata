@@ -4,4 +4,5 @@
 
     <entity class="org.example.entity.Artist"/>
     <entity class="org.example.entity.Genre"/>
+    <entity class="org.example.entity.Album"/>
 </entity-mappings>

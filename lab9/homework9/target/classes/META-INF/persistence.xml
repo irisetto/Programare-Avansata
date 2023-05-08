@@ -8,9 +8,10 @@
 
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <mapping-file>META-INF/orm.xml</mapping-file>
-    <mapping-file>META-INF/orm.xml</mapping-file>
+
     <class>org.example.entity.Artist</class>
     <class>org.example.entity.Genre</class>
+    <class>org.example.entity.Album</class>
 
     <properties>
       <property name="jakarta.persistence.jdbc.driver"
