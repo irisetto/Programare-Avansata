@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="comp10-client:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/comp10_client_jar</output-path>
+    <root id="archive" name="comp10-client.jar">
+      <element id="module-output" name="comp10-client" />
+    </root>
+  </artifact>
+</component>
