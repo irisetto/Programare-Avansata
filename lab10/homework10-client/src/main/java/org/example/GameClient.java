@@ -24,25 +24,56 @@ public class GameClient {
 
         try {
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-                String request;
+            Thread userInputThread = new Thread(() -> {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+                String userInput;
 
-                while ((request = reader.readLine()) != null) {
-                    out.println(request);
-                    if (request.equals("exit")) {
-                        socket.close();
-                        break;
+                try {
+                    while ((userInput = reader.readLine()) != null) {
+                        out.println(userInput);
+                        if (userInput.equals("exit")) {
+                            socket.close();
+                            break;
+                        } else if (userInput.equals("stop")) {
+                            System.out.println("Server stopped");
+                            break;
+                        }
                     }
-                    else if(request.equals("stop")) {
-                        System.out.println("Server stopped");
-                        break;
-                    }
-                        String response2 = in.readLine();
-                    System.out.println("Server response: " + response2);
-
-
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
+            });
 
+// Start the user input thread
+            userInputThread.start();
+
+// Main thread for handling server responses
+            try {
+                String serverResponse;
+
+                while ((serverResponse = in.readLine()) != null) {
+
+                    if (serverResponse.isEmpty()) {
+
+                        continue;
+                    }
+                    if (serverResponse.startsWith("These are the accepted commands")) {
+                        System.out.println(serverResponse);
+                    } else if(serverResponse.startsWith("- "))
+                        System.out.println(serverResponse);
+                    else {
+                        System.out.println("Server response: " + serverResponse);
+                    }
+                    if (serverResponse.contains("wins")) {
+
+                        socket.close();
+                        System.exit(0);
+                        break;
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
                socket.close();
             in.close();
             out.close();

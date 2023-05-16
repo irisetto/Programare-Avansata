@@ -9,12 +9,13 @@ import java.util.List;
 
 public class GameServer {
     public final int PORT = 8100;
-    private boolean isTrue=false;
-    private ServerSocket serverSocket ;
+    private boolean isTrue = false;
+    private ServerSocket serverSocket;
     private List<ClientThread> clients;
     private boolean startedGame;
-    public GameServer(){
-        isTrue=true;
+
+    public GameServer() {
+        isTrue = true;
         this.clients = new ArrayList<>();
         this.startedGame = false;
     }
@@ -23,28 +24,27 @@ public class GameServer {
         clients.remove(clientThread);
     }
 
-    public void run () {
+    public void run() {
         try {
             serverSocket = new ServerSocket(PORT);
 
             while (isTrue) {
                 if (clients.size() < 2) {
-                    System.out.println ("Waiting for a client ...");
-                Socket socket = serverSocket.accept();
-                System.out.println("Client connected: " + socket.getInetAddress().getHostName());
-                // Execute the client's request in a new thread
+                    System.out.println("Waiting for a client ...");
+                    Socket socket = serverSocket.accept();
+                    System.out.println("Client connected: " + socket.getInetAddress().getHostName());
+                    // Execute the client's request in a new thread
 
 
-                        ClientThread client = new ClientThread(socket, this);
-                        clients.add(client);
-                        client.start();
-                        System.out.println("nr de clienti conectati " + clients.size());
-                        if(clients.size()==2) {
-                            startedGame=true;
-                            System.out.println("The game can start!");
-                        }
+                    ClientThread client = new ClientThread(socket, this);
+                    clients.add(client);
+                    client.start();
+                    System.out.println("nr de clienti conectati " + clients.size());
+                    if (clients.size() == 2) {
+                        startedGame = true;
+                        System.out.println("The game can start!");
                     }
-                    else {
+                } else {
                     if (clients.size() >= 2) {
                         Socket socket = serverSocket.accept();
                         PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
@@ -53,27 +53,39 @@ public class GameServer {
                         socket.close();
 
                     }
-                    }
+                }
 
             }
         } catch (IOException e) {
-            System.err. println ("Ooops... " + e);
+            System.err.println("Ooops... " + e);
         } finally {
             stop();
 
 
         }
     }
+
     public void stop() {
         try {
             isTrue = false;
-    serverSocket.close();
-        System.out.println("Server stopped");
+            serverSocket.close();
+            System.out.println("Server stopped");
+        } catch (IOException e) {
+            System.out.println("bla");
+        }
     }
-catch (IOException e){
-    System.out.println("bla");
-}
-}
+
+    public void notifyClients(String message) {
+        for (ClientThread client : clients) {
+            try {
+                PrintWriter out = new PrintWriter(client.getSocket().getOutputStream(), true);
+                out.println(message);
+
+            } catch (IOException e) {
+                System.out.println("Error sending message to client: " + e.getMessage());
+            }
+        }
+    }
 
     public List<ClientThread> getClients() {
         return clients;

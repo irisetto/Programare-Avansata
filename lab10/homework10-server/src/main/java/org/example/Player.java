@@ -2,22 +2,27 @@ package org.example;
 
 public class Player {
     private String name;
-    private int score;
     private int port;
 
-    public Player(String name,int port) {
+    public Player(String name, int port) {
         this.name = name;
-        this.score=0;
-        this.port=port;
+        this.port = port;
     }
 
     @Override
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
-                ", score=" + score +
                 ", port=" + port +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getPort() {
