@@ -1,1 +1,3 @@
 [*] Compulsory
+[*] Homework
+am facut video in care am prezentat diferite scenarii cu ce e permis si ce nu si ce raspunsuri se primeste cand e comanda gresita. daca se joaca mult si tabla se umple de asemenea se primeste mesaj de remiza. daca un player depaseste timpul, la urmatoarea comanda a lui mesajul se va trimite tuturor ca timpul sau a expirat si ca a castigat celalalt player.
