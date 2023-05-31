@@ -1,0 +1,81 @@
+Class: public org.example.Main
+Superclass: java.lang.Object
+Constructors:
+- public org.example.Main
+Fields:
+- private static int totalTests
+- private static int passedTests
+- private static int failedTests
+Methods:
+- public static void main
+  Parameters:
+  - [Ljava.lang.String; arg0
+- private static java.lang.String getClassName
+  Parameters:
+  - java.lang.String arg0
+  - java.lang.String arg1
+- private static void analyzeClasses
+  Parameters:
+  - java.lang.String arg0
+- private static void displayParameters
+  Parameters:
+  - [Ljava.lang.reflect.Parameter; arg0
+- private static void invokeTestMethod
+  Parameters:
+  - java.lang.Object arg0
+  - java.lang.reflect.Method arg1
+- private static void displayClassInfo
+  Parameters:
+  - java.lang.Class arg0
+- private static void printStatistics
+- private static void analyzeTestClass
+  Parameters:
+  - java.lang.Class arg0
+- private static void analyzeClassesInDirectory
+  Parameters:
+  - java.io.File arg0
+- private static void invokeStaticTestMethod
+  Parameters:
+  - java.lang.Class arg0
+  - java.lang.reflect.Method arg1
+- private static [Ljava.lang.Object; generateMockArguments
+  Parameters:
+  - [Ljava.lang.Class; arg0
+Class: public org.example.TeoClass
+Superclass: java.lang.Object
+Constructors:
+- public org.example.TeoClass
+Methods:
+- public static void testMethod
+  Parameters:
+  - int arg0
+- public void sayHello
+Running test: org.example.TeoClass.testMethod
+This is a test method 0
+Class: public org.example.TestClass2
+Superclass: java.lang.Object
+Constructors:
+- public org.example.TestClass2
+Methods:
+- public void testMethod
+- public void sayHello
+Running test: org.example.TestClass2.testMethod
+This is a test method 2.
+Class: public org.example.TestClass3
+Superclass: java.lang.Object
+Constructors:
+- public org.example.TestClass3
+Methods:
+- public static void testMethod
+- public static void sayHello
+  Parameters:
+  - java.lang.String arg0
+Running test: org.example.TestClass3.testMethod
+This is a test method 3.
+Running test: org.example.TestClass3.sayHello
+Hello mock
+
+--- Test Statistics ---
+Total tests: 4
+Passed tests: 4
+Failed tests: 0

@@ -1,0 +1,1 @@
+Am facut tot, inclusiv acea bulina de nu o aveam la laborator sa afisez informatii despre clasele din folder.

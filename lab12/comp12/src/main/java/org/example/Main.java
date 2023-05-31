@@ -15,7 +15,7 @@ public class Main {
                 for (Method method : methods) {
                     if (method.isAnnotationPresent(Test.class) && method.getParameterCount() == 0) {
                         System.out.println("Method test name: " + method.getName());
-                        method.invoke(null); 
+                        method.invoke(null);
                     }
                     else{
                         System.out.println("Other method: " + method.getName());
