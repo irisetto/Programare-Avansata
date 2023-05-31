@@ -1,0 +1,1 @@
+Am facut tot si este si un fisier cu un exemplu de comenzi si ce afiseaza.
